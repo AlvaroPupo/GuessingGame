@@ -23,9 +23,6 @@ public class Main {
         int userGuess = input.nextInt();
         int generatedNumber = (int) Math.ceil(Math.random() * 100);
         
-                System.out.println("enter a number between 0 and 100: ");
-                userGuess = input.nextInt();
-
                 if (userGuess == generatedNumber) {
                     System.out.println("you guessed the correct number!!");
 
@@ -37,7 +34,6 @@ public class Main {
                     System.out.println("Your number is too low");
                     numberOfGuesses++;
             }
-            while (numberOfGuesses <= 0) ;
             if (numberOfGuesses >= 1) {
                 Scanner newnumber = new Scanner(System.in);
                 System.out.println("Enter your guess: ");
@@ -54,7 +50,6 @@ public class Main {
                     numberOfGuesses++;
                 }
             }
-            while (numberOfGuesses <= 1) ;
             if (numberOfGuesses >= 2) {
                 Scanner newnumber2 = new Scanner(System.in);
                 System.out.println("Enter your guess: ");
@@ -71,7 +66,6 @@ public class Main {
                     numberOfGuesses++;
                 }
             }
-            while (numberOfGuesses <= 2) ;
             if (numberOfGuesses >= 3) {
                 Scanner newnumber3 = new Scanner(System.in);
                 System.out.println("Enter your guess: ");
@@ -88,7 +82,6 @@ public class Main {
                     numberOfGuesses++;
                 }
             }
-            while (numberOfGuesses <= 3) ;
             if (numberOfGuesses >= 4) {
                 Scanner newnumber4 = new Scanner(System.in);
                 System.out.println("Enter your guess: ");
