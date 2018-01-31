@@ -20,11 +20,14 @@ public class Main {
         Scanner input = new Scanner(System.in);
         System.out.println("Guess a number between 0 and 100: ");
         System.out.println("Enter your guess: ");
-        int userGuess = input.nextInt();
         int generatedNumber = (int) Math.ceil(Math.random() * 100);
-        
+        do {
+            int userGuess;
+            try {
+                userGuess = input.nextInt();
                 if (userGuess == generatedNumber) {
                     System.out.println("you guessed the correct number!!");
+                    System.out.println("Want to play again? Y/N");
 
                 } else if (userGuess > generatedNumber) {
                     System.out.println("Your number is too high!");
@@ -33,69 +36,20 @@ public class Main {
                 } else if (userGuess < generatedNumber) {
                     System.out.println("Your number is too low");
                     numberOfGuesses++;
-            }
-            if (numberOfGuesses >= 1) {
-                Scanner newnumber = new Scanner(System.in);
-                System.out.println("Enter your guess: ");
-                int newGuess = newnumber.nextInt();
-
-                if (newGuess == generatedNumber) {
-                    System.out.println("you guessed the correct number!!");
-                } else if (newGuess > generatedNumber) {
-                    System.out.println("Your number is too high!");
-                    numberOfGuesses++;
-
-                } else if (newGuess < generatedNumber) {
-                    System.out.println("Your number is too low");
-                    numberOfGuesses++;
                 }
+            } catch (InputMismatchException ime) {
+                System.out.println("invalid input, please enter a number between 0 and 100...");
+                System.out.println("Enter your guess again: ");
+                input.nextLine();
             }
-            if (numberOfGuesses >= 2) {
-                Scanner newnumber2 = new Scanner(System.in);
-                System.out.println("Enter your guess: ");
-                int newGuess2 = newnumber2.nextInt();
+        } while (numberOfGuesses < 5);
 
-                if (newGuess2 == generatedNumber) {
-                    System.out.println("you guessed the correct number!!");
-                } else if (newGuess2 > generatedNumber) {
-                    System.out.println("Your number is too high!");
-                    numberOfGuesses++;
+        if (numberOfGuesses >= 6 || numberOfGuesses != generatedNumber) {
 
-                } else if (newGuess2 < generatedNumber) {
-                    System.out.println("Your number is too low");
-                    numberOfGuesses++;
-                }
-            }
-            if (numberOfGuesses >= 3) {
-                Scanner newnumber3 = new Scanner(System.in);
-                System.out.println("Enter your guess: ");
-                int newGuess3 = newnumber3.nextInt();
-
-                if (newGuess3 == generatedNumber) {
-                    System.out.println("you guessed the correct number!!");
-                } else if (newGuess3 > generatedNumber) {
-                    System.out.println("Your number is too high!");
-                    numberOfGuesses++;
-
-                } else if (newGuess3 < generatedNumber) {
-                    System.out.println("Your number is too low");
-                    numberOfGuesses++;
-                }
-            }
-            if (numberOfGuesses >= 4) {
-                Scanner newnumber4 = new Scanner(System.in);
-                System.out.println("Enter your guess: ");
-                int newGuess4 = newnumber4.nextInt();
-
-                if (newGuess4 == generatedNumber) {
-                    System.out.println("you guessed the correct number!!");
-                    System.out.println("do you want to play again? Y/N");
-
-                } else if (newGuess4 != generatedNumber) {
-                    System.out.println("Sorry, you have ran out of chances. The correct number was: " + generatedNumber);
-                    System.out.println("do you want to play again? Y/N");
-                }
-            }
+            System.out.println("Sorry, you have ran out of chances. The correct number was: " + generatedNumber);
+            System.out.println("do you want to play again? Y/N");
+            input.nextLine();
 
         }
-    }
+            }
+        }
